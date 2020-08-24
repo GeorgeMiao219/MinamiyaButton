@@ -24,12 +24,20 @@ export default {
         Nav
     },
     created() {
-        var head = document.getElementsByTagName('head')[0]
-        var link = document.createElement('link')
-        link.type = 'text/css'
-        link.rel = 'stylesheet'
-        link.href = this.$store.state.config.iconfont
-        head.appendChild(link)
+        const conf = this.$store.state.config
+        document.title = conf.buttonName
+        const head = document.getElementsByTagName('head')[0]
+        const iconfont = document.createElement('link')
+        iconfont.type = 'text/css'
+        iconfont.rel = 'stylesheet'
+        iconfont.href = conf.iconfont
+        Object.entries(conf.meta).forEach(function (entry) {
+            const meta = document.createElement('meta')
+            meta.setAttribute("property", entry[0])
+            meta.content = entry[1]
+            head.appendChild(meta)
+        })
+        head.appendChild(iconfont)
     },
     mounted() {
         window.vue = this

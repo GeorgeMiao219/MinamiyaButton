@@ -1,5 +1,12 @@
 {
+    "buttonName": "Minamiya Button",
     "metaSource": "https://rushia.moe/category",
+    "meta": {
+        "description": "A fan-made button panel for Vup Minamiya Akari",
+        "og:title": "Minamiya Button",
+        "og:url": "Minamiya.moe",
+        "og:description": "A fan-made button panel for Vup Minamiya Akari"
+    },
     "locale": {
         "default": "zh",
         "fallback": "en"
