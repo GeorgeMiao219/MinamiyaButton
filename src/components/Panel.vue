@@ -1,67 +1,71 @@
 <template>
-    <div class="panel">
-        <div class='title-wrap' @click='show = !show' v-if="category['en'] !== 'default'">
-            <a class="category-name">{{ $loc(category) }}</a>
-            <i :class="[show ? '' : 'rotated', 'drop', 'iconfont']">&#xe620;</i>
-        </div>
-        <div class="panel-wrap" v-if="show">
-            <BaseButton v-for="(clip, index) in clips" :key="index" :url="clip.url" :btnName="clip.name" />
-        </div>
+<div class="panel">
+    <div class='title-wrap' @click='show = !show' v-if="category['en'] !== 'default'">
+        <a class="category-name">{{ $loc(category) }}</a>
+        <i :class="[show ? '' : 'rotated', 'drop', 'iconfont']">&#xe620;</i>
     </div>
+    <div class="panel-wrap" v-if="show">
+        <BaseButton v-for="(clip, index) in clips" :key="index" :url="clip.url" :btnName="clip.name" />
+    </div>
+</div>
 </template>
+
 <script>
-    import BaseButton from '@/components/BaseBtn.vue'
-    export default {
-        name: "Panel",
-        components: {
-            BaseButton
-        },
-        data() {
-            return {
-                show: true,
-            }
-        },
-        props: ["clips", "category"]
-    }
+import BaseButton from '@/components/BaseBtn.vue'
+export default {
+    name: "Panel",
+    components: {
+        BaseButton
+    },
+    data() {
+        return {
+            show: true,
+        }
+    },
+    props: ["clips", "category"]
+}
 </script>
+
 <style>
-    .drop {
-        font-size: 25px;
-        position: relative;
-        bottom: -2px;
-        transition: all 0.3s ease;
-    }
-    .panel {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
+.drop {
+    font-size: 25px;
+    position: relative;
+    bottom: -2px;
+    transition: all 0.3s ease;
+}
 
-    .title-wrap {
-        cursor: pointer;
-        margin: 1rem;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-    }
+.panel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
 
-    .panel-wrap {
-        display: flex;
-        flex-wrap: wrap;
-        width: auto;
-        transition: all ease 0.3s;
-    }
+.title-wrap {
+    cursor: pointer;
+    margin: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 
-    .category-name {
-        margin-right: 4px;
-        font-size: 1.5em;
-    }
+.panel-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+    transition: all ease 0.3s;
+}
 
-    .category-name::before {
-        content: '# '
-    }
+.category-name {
+    margin-right: 4px;
+    font-size: 1.5em;
+    color: var(--font-color);
+}
 
-    .rotated {
-        transform: rotate(90deg);
-    }
+.category-name::before {
+    content: '# '
+}
+
+.rotated {
+    transform: rotate(90deg);
+}
 </style>

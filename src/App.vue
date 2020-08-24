@@ -4,6 +4,7 @@
       '--btn-color': btnColor, 
       '--box-shadow': boxShadow.shadow,
       '--hover-shadow': boxShadow.hover,
+      '--btn-font-color': btnFontColor,
       '--font-color': fontColor
       }
     ">
@@ -51,6 +52,9 @@ export default {
         btnColor: function () {
             return this.colorChoosed.btnColor
         },
+        btnFontColor: function () {
+            return this.colorChoosed.btnFontColor
+        },
         fontColor: function () {
             return this.colorChoosed.fontColor
         },
@@ -85,7 +89,7 @@ html body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: var(--font-color);
+    color: var(--btn-font-color);
     padding: 0.2rem;
     background-color: var(--background);
     min-height: 100vh;
@@ -94,10 +98,10 @@ html body {
 
 #nav a {
     font-weight: bold;
-    color: #001f3f;
+    color: var(--btn-font-color);
 }
 
 #nav a.router-link-exact-active {
-    color: #42b983;
+    color: var(--btn-font-color);
 }
 </style>
